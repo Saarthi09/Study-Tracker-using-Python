@@ -24,3 +24,15 @@ def add_hours(subjects, hours):
         data[subject] = hours
     save_data(data)
     print(f"Added {hours} hours to {subjects}. Total = {data[subject]} hrs")
+
+#viewing stats:
+def view_stats():
+    data = load_data()
+    if not data:
+        print("No hours logged yet")
+        return
+    total = 0
+    for subject, hours in data.items():
+        print(f"- {subject}: {hours} hrs")
+        total += hours
+    print{f"\n total study time: {total}hrs"}
