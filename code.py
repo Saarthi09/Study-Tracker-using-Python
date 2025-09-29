@@ -55,6 +55,7 @@ def main():
             view_stats()
         elif choice =="3":
             print("Goodbye")
+            return
         else:
             print("Invalid choice")
         
