@@ -16,14 +16,14 @@ def save_data(data):
         json.dump(data, file, indent=4)
 
 #adding study hours;
-def add_hours(subjects, hours):
+def add_hours(subject, hours):
     data = load_data()
     if subject in data:
         data[subject] += hours
     else: 
         data[subject] = hours
     save_data(data)
-    print(f"Added {hours} hours to {subjects}. Total = {data[subject]} hrs")
+    print(f"Added {hours} hours to {subject}. Total = {data[subject]} hrs")
 
 #viewing stats:
 def view_stats():
