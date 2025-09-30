@@ -1,5 +1,7 @@
 import json
 import os
+import matplotlib as plt 
+from datetime import datetime, timedelta
 
 filename = "Study_Tracker.json"
 
@@ -36,6 +38,22 @@ def view_stats():
         print(f"- {subject}: {hours} hrs")
         total += hours
     print(f"\n total study time: {total}hrs")
+
+#graphing previous 7 days
+def plot_7_days():
+    data = load_data
+    today = datetime.today().date()
+    last_7_days = [(today - timedelta(days=i)).isoformat() for i in range (6,-1,-1)]
+
+    daily_totals = []
+    for day in last_7_days:
+        if day in data:
+            daily_totals.append(sum(data[day].values()))
+        else: 
+            daily_totals.append(0)
+
+    avg_hours = sum(daily_totals)/7
+    peak_hours = max(daily_totals)
 
 def main():
     while True:
