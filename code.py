@@ -55,11 +55,20 @@ def plot_7_days():
     avg_hours = sum(daily_totals)/7
     peak_hours = max(daily_totals)
 
+    plt.bar(last_7_days, daily_totals, color="skyblue")
+    plt.xticks(rotation=45)
+    plt.xlabel("Date")
+    plt.ylabel("Hours Studied")
+    plt.title(f"Study Hours (Last 7 Days)\n Average: {avg_hours:.2f} hrs | Peak: {peak_hours:.2f} hrs")
+    plt.tight_layout()
+    plt.show
+
 def main():
     while True:
         print("\n1. Add study hours")
         print("2. View Stats")
-        print("3. Exit")
+        print("3. Show Graph")
+        print("4. Exit")
         choice = input("Choose: ")
 
         if choice == "1":
@@ -71,7 +80,9 @@ def main():
                 print("Please enter a valid number")
         elif choice == "2":
             view_stats()
-        elif choice =="3":
+        elif choice == "3":
+            plot_7_days()
+        elif choice =="4":
             print("Goodbye")
             return
         else:
