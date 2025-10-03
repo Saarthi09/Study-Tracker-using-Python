@@ -63,6 +63,14 @@ def plot_7_days():
     plt.tight_layout()
     plt.show
 
+#weekly prediction:
+def predict():
+    data = load_data()
+    today = datetime.today().date()
+    week_begin = today - timedelta(days=today.weekday())
+    week_days = [(week_begin + timedelta(days=i)).isoformat() for i in range(7)]
+    
+
 def main():
     while True:
         print("\n1. Add study hours")
